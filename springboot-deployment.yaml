@@ -30,11 +30,6 @@ spec:
         image: springio/gs-spring-boot-docker
         imagePullPolicy: IfNotPresent
         name: springboot
-        resources:
-          requests:
-            memory: "256Mi"
-          limits:
-            memory: "1024Mi"
 ---
 apiVersion: apps/v1
 kind: Deployment
