@@ -35,3 +35,37 @@ spec:
             memory: "256Mi"
           limits:
             memory: "1024Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: rabbit
+  name: rabbit
+  namespace: springio
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      application: rabbit
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        application: rabbit
+        tier: mq
+      name: rabbit
+    spec:
+      containers:
+      - image: springio/spring-rabbit-base
+        imagePullPolicy: IfNotPresent
+        name: rabbit
+        resources:
+          requests:
+            memory: "256Mi"
+          limits:
+            memory: "1024Mi"
