@@ -59,3 +59,32 @@ spec:
       - image: springio/spring-rabbit-base
         imagePullPolicy: IfNotPresent
         name: rabbit
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: neo4j
+  name: neo4j
+  namespace: springio
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      application: neo4j
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        application: neo4j
+        tier: graph-db
+      name: neo4j
+    spec:
+      containers:
+      - image: springio/spring-neo-base
+        imagePullPolicy: IfNotPresent
+        name: neo4j
