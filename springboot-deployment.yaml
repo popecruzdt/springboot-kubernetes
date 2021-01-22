@@ -64,8 +64,3 @@ spec:
       - image: springio/spring-rabbit-base
         imagePullPolicy: IfNotPresent
         name: rabbit
-        resources:
-          requests:
-            memory: "256Mi"
-          limits:
-            memory: "1024Mi"
