@@ -68,7 +68,7 @@ metadata:
   name: neo4j
   namespace: springio
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       application: neo4j
