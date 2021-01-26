@@ -7,7 +7,7 @@ metadata:
   name: springboot
   namespace: springio
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       application: springboot
@@ -68,7 +68,7 @@ spec:
           requests:
             memory: "75Mi"
           limits:
-            memory: "100Mi"
+            memory: "150Mi"
 ---
 apiVersion: apps/v1
 kind: Deployment
