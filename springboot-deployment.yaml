@@ -26,10 +26,15 @@ spec:
       containers:
       - env:
         - name: JAVA_OPTS
-          value: -Xms256m -Xmx512m
+          value: -Xms128m -Xmx256m
         image: springio/gs-spring-boot-docker
         imagePullPolicy: IfNotPresent
         name: springboot
+        resources:
+          requests:
+            memory: "150Mi"
+          limits:
+            memory: "300Mi"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -59,6 +64,11 @@ spec:
       - image: springio/spring-rabbit-base
         imagePullPolicy: IfNotPresent
         name: rabbit
+        resources:
+          requests:
+            memory: "75Mi"
+          limits:
+            memory: "100Mi"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -88,3 +98,8 @@ spec:
       - image: springio/spring-neo-base
         imagePullPolicy: IfNotPresent
         name: neo4j
+        resources:
+          requests:
+            memory: "500Mi"
+          limits:
+            memory: "775Mi"
