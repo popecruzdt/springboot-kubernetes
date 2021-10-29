@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: springboot
+  name: springboot
+  namespace: springio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: springboot
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        application: springboot
+        tier: java
+      name: springboot
+    spec:
+      containers:
+      - env:
+        - name: JAVA_OPTS
+          value: -Xms128g -Xmx256g
+        image: springio/gs-spring-boot-docker
+        imagePullPolicy: IfNotPresent
+        name: springboot
