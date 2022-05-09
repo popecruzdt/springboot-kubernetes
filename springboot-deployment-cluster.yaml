@@ -33,6 +33,16 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.labels['app.kubernetes.io/name']
+        - name: DT_RELEASE_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: DT_RELEASE_BUILD_VERSION
+          value: 1.0
+        - name: DT_RELEASE_STAGE
+          value: springboot
+        - name: DT_RELEASE_PRODUCT
+          value: springio
         image: springio/gs-spring-boot-docker
         imagePullPolicy: IfNotPresent
         name: springboot
