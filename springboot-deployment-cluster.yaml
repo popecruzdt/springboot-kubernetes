@@ -43,14 +43,20 @@ spec:
           value: springboot
         - name: DT_RELEASE_PRODUCT
           value: springio
-      image: springio/gs-spring-boot-docker
-      imagePullPolicy: IfNotPresent
-      name: springboot
-      resources:
-        requests:
-          memory: "150Mi"
-        limits:
-          memory: "300Mi"
+        image: springio/gs-spring-boot-docker
+        imagePullPolicy: IfNotPresent
+        name: springboot
+        resources:
+          requests:
+            memory: "150Mi"
+          limits:
+            memory: "300Mi"
+        volumeMounts:
+        - name: springboot-storage
+          mountPath: /data/springboot
+      volumes:
+      - name: springboot-storage
+        emptyDir: {}
 ---
 apiVersion: apps/v1
 kind: Deployment
