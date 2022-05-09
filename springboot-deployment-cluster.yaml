@@ -38,7 +38,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: DT_RELEASE_BUILD_VERSION
-          value: 1.0
+          value: 1.0.1
         - name: DT_RELEASE_STAGE
           value: springboot
         - name: DT_RELEASE_PRODUCT
