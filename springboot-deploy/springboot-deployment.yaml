@@ -42,7 +42,7 @@ metadata:
     application: rabbit
   name: rabbit
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       application: rabbit
@@ -75,7 +75,7 @@ metadata:
     application: neo4j
   name: neo4j
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       application: neo4j
