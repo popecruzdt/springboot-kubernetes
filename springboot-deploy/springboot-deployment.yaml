@@ -6,7 +6,7 @@ metadata:
     application: springboot
   name: springboot
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       application: springboot
