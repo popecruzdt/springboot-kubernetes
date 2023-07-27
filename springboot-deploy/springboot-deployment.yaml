@@ -31,7 +31,7 @@ spec:
         name: springboot
         resources:
           requests:
-            memory: "160Mi"
+            memory: "165Mi"
           limits:
             memory: "300Mi"
 ---
