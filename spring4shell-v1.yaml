@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    application: spring4shell
+  name: spring4shell
+  namespace: springio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: spring4shell
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        application: spring4shell
+        tier: java
+      name: spring4shell
+    spec:
+      containers:
+      - env:
+        - name: JAVA_OPTS
+          value: -Xms128m -Xmx256m
+        image: popecruzdt/spring4shell:v1
+        imagePullPolicy: IfNotPresent
+        name: spring4shell
+        resources:
+          requests:
+            memory: "150Mi"
+          limits:
+            memory: "300Mi"
