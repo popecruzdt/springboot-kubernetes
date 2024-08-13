@@ -21,6 +21,7 @@ spec:
       labels:
         application: spring4shell
         tier: java
+        state: vuln
       name: spring4shell
     spec:
       containers:
